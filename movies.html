@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script>
+            let entercount=0;
+            const maxentries=11;
+                    const movies=[
+  "3 Idiots", "Lagaan: Once Upon a Time in India", "Taare Zameen Par", "Devdas", 
+  "Om Shanti Om", "Kabhi Khushi Kabhie Gham...", "Dil Chahta Hai", "Rang De Basanti", 
+  "Munna Bhai M.B.B.S.", "Dhoom 2", "Swades", "Koi... Mil Gaya", "Jab We Met", "Black", 
+  "Don", "Veer-Zaara", "Krrish", "Bunty Aur Babli", "Guru", "Chak De! India", "Ghajini", 
+  "Rab Ne Bana Di Jodi", "Rock On!!", "Love Aaj Kal", "Wake Up Sid", "Paa", "Raajneeti", 
+  "Dabangg", "Zindagi Na Milegi Dobara", "Rockstar", "Don 2", "Barfi!", "Kahaani", 
+  "Gangs of Wasseypur", "Student of the Year", "Yeh Jawaani Hai Deewani", "Bhaag Milkha Bhaag", 
+  "Chennai Express", "Queen", "PK", "Haider", "Piku", "Bajrangi Bhaijaan", 
+  "Tanu Weds Manu Returns", "Dil Dhadakne Do", "Tamasha", "Neerja", "Kapoor & Sons", 
+  "Dangal", "Dear Zindagi", "Raees", "Hindi Medium", "Toilet: Ek Prem Katha", 
+  "Secret Superstar", "Padmaavat", "Raazi", "Stree", "Badhaai Ho", "Andhadhun", 
+  "Gully Boy", "Article 15", "War", "Chhichhore", "Tanhaji", "Shubh Mangal Zyada Saavdhan", 
+  "Gunjan Saxena: The Kargil Girl", "Ludo", "Sooryavanshi", "Shershaah", "83", 
+  "Gangubai Kathiawadi", "Bhool Bhulaiyaa 2", "Brahmāstra: Part One – Shiva", "Drishyam 2", 
+  "Pathaan", "Tu Jhoothi Main Makkaar", "Rocky Aur Rani Kii Prem Kahaani", "Jawan", 
+  "Tiger 3", "Dunki", "Fateh", "Sikandar", "Deva", "Chhaava", "Badass Ravi Kumar", 
+  "120 Bahadur", "Click Shankar", "Sam Bahadur", "Sitaare Zameen Par", "Woh Ladki Hai Kahaan", 
+  "Teen Aur Aadha", "Satte Pe Satta", "Tadkaa", "Section 84", "KD - The Devil", 
+  "Tariq", "Dr. Abdul Kalam", "Gorkha", "Mogul", "Pyar Mein Qurban"
+]
+
+
+            function getmovie()
+            {
+                
+                const randomIndex = Math.floor(Math.random() * movies.length); // Random index between 0 and 7
+                return movies[randomIndex];
+            }
+          
+            function displaymovie()
+            {
+                
+                const randommovie= getmovie();
+                if(entercount<maxentries)
+                {
+                    document.getElementById('random-movie').textContent=randommovie;
+                    
+                }
+                if(entercount===maxentries)
+                {
+                    document.getElementById('complete').textContent="WOW";   
+                    document.getElementById('para').textContent="ARE YOU SATISFIED?"
+                }
+                entercount++;
+                
+            }
+            document.addEventListener('DOMContentLoaded',function()
+            {   
+                displaymovie();
+                document.querySelectorAll(".text").forEach(input => {
+                    input.addEventListener('keydown',function(event)
+                    {
+                        if(event.key === "Enter")
+                        {
+                            displaymovie();
+                        }   
+                    });
+                });    
+            });
+        </script>
+        <style>
+            .block,.block1 {
+                display: block;
+                margin: 5px;
+                text-align: center;
+                padding: 5;
+            }
+            h1 {
+               
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: large;
+                text-align: center;
+            }
+            .jumbotron
+            {
+                padding: 5%;
+                margin: 0;
+            }
+            #completed
+            {
+                background-color: #e1d8dc;
+                text-align: center;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: large;
+                color: black;
+                
+            }
+            .text
+            {
+                font-weight: 300;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .maincontent
+            {
+                background-color: #e1d8dc;
+            }   
+            #random-movie
+            {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: xx-large;
+                text-align: center;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="jumbotron text-center"> 
+            <h1>Rate The Movies.</h1>
+            <div id="random-movie" height=50px width=100px ></div>
+        </div>
+        <div class="maincontent clearfix">
+            <div id="content" class="col-sm-6">
+                <div class="block">1. <input class="text" type="text"></div>
+                <div class="block">2. <input class="text" type="text"></div>
+                <div class="block">3. <input class="text" type="text"></div>
+                <div class="block">4. <input class="text" type="text"></div>
+                <div class="block">5. <input class="text" type="text"></div>
+        
+            </div>
+            <div id="content1" class="col-sm-6">
+                <div class="block1">6. <input class="text" type="text"></div>
+                <div class="block1">7. <input class="text" type="text"></div>
+                <div class="block1">8. <input class="text" type="text"></div>
+                <div class="block1">9. <input class="text" type="text"></div>
+                <div class="block1">10. <input class="text" type="text"></div>
+                <div class="block1">11. <input class="text" type="text"></div>
+            </div>
+        </div>
+        <div id="completed">
+            <div id="complete"></div>
+            <p id="para"></p>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script>
+            let entercount=0;
+            const maxentries=11;
+            const images=[
+                "src/gb-sct.png",
+                "src/nl.png",
+                "src/ca.png",
+                "src/us.png",
+                "src/om.png",
+                "src/np.png",
+                "src/na.png",
+                "src/ae.png"
+            ]
+            function getflag()
+            {
+                
+                const randomIndex = Math.floor(Math.random() * images.length); // Random index between 0 and 7
+                return images[randomIndex];
+            }
+          
+            function displayflag()
+            {
+                
+                const randomflag= getflag();
+                if(entercount<maxentries)
+                {
+                    document.getElementById('random-image').src=randomflag;
+                    
+                }
+                if(entercount===maxentries)
+                {
+                    document.getElementById('complete').textContent="Team Complete ";   
+                    document.getElementById('para').textContent="How Tough is This!!!"
+                }
+                entercount++;
+                
+            }
+            document.addEventListener('DOMContentLoaded',function()
+            {   
+                displayflag();
+                document.querySelectorAll(".text").forEach(input => {
+                    input.addEventListener('keydown',function(event)
+                    {
+                        if(event.key === "Enter")
+                        {
+                            displayflag();
+                        }
+                    });
+                });    
+            });
+        </script>
+        <style>
+            .block,.block1 {
+                display: block;
+                margin: 5px;
+                text-align: center;
+                padding: 5;
+            }
+            h1 {
+               
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: xx-large;
+                text-align: center;
+            }
+            .jumbotron
+            {
+                padding: 5%;
+                margin: 0;
+            }
+            #completed
+            {
+                background-color: #e1d8dc;
+                text-align: center;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: large;
+                color: black;
+                
+            }
+            .text
+            {
+                font-weight: 300;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            .maincontent
+            {
+                background-color: #e1d8dc;
+            }   
+            
+
+
+        </style>
+    </head>
+    <body>
+        <div class="jumbotron text-center"> 
+            <h1>Choose Your Players.</h1>
+            <img id="random-image" height=50px width=100px src="" alt="Random Image"/>
+        </div>
+        <div class="maincontent clearfix">
+            <div id="content" class="col-sm-6">
+                <div class="block">1. <input class="text" type="text"></div>
+                <div class="block">2. <input class="text" type="text"></div>
+                <div class="block">3. <input class="text" type="text"></div>
+                <div class="block">4. <input class="text" type="text"></div>
+                <div class="block">5. <input class="text" type="text"></div>
+        
+            </div>
+            <div id="content1" class="col-sm-6">
+                <div class="block1">6. <input class="text" type="text"></div>
+                <div class="block1">7. <input class="text" type="text"></div>
+                <div class="block1">8. <input class="text" type="text"></div>
+                <div class="block1">9. <input class="text" type="text"></div>
+                <div class="block1">10. <input class="text" type="text"></div>
+                <div class="block1">11. <input class="text" type="text"></div>
+            </div>
+        </div>
+        <div id="completed">
+            <div id="complete"></div>
+            <p id="para"></p>
+        </div>
+        
+    </body>
+</html>
