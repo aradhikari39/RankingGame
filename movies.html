@@ -29,13 +29,21 @@
   "Teen Aur Aadha", "Satte Pe Satta", "Tadkaa", "Section 84", "KD - The Devil", 
   "Tariq", "Dr. Abdul Kalam", "Gorkha", "Mogul", "Pyar Mein Qurban"
 ]
-
+            let lastNumber=-1
 
             function getmovie()
             {
+                {
+                    let randomIndex
+                    do{
+                        randomIndex = Math.floor(Math.random() * movies.length);
+                    }while(randomIndex===lastNumber);
+                    
+                    lastNumber=randomIndex;
+                    return movies[randomIndex];
+                }
+               
                 
-                const randomIndex = Math.floor(Math.random() * movies.length); // Random index between 0 and 7
-                return movies[randomIndex];
             }
           
             function displaymovie()
@@ -50,7 +58,9 @@
                 if(entercount===maxentries)
                 {
                     document.getElementById('complete').textContent="WOW";   
-                    document.getElementById('para').textContent="ARE YOU SATISFIED?"
+                    document.getElementById('para').textContent="ARE YOU SATISFIED?";
+                    document.getElementById('random-movie').textContent="";
+
                 }
                 entercount++;
                 
